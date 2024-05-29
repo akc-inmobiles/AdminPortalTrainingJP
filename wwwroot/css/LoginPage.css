@@ -8,6 +8,7 @@
 .Two-cols {
     display: flex;
     height:100vh;
+    width:100%;
 }
 
     .Two-cols > * {
@@ -15,9 +16,29 @@
     }
     .left-div{
         padding:0;
-        background-repeat:no-repeat;
-        background-position:center;
-        background-size:30%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+.password-container {
+    position: relative;
+}
+
+.input-fields {
+   max-width: 100%;
+
+    padding-right: 40px; /* Space for the eye icon */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 55%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+    .backgroundimg{
+        width:30%;
     }
 .right-div {
     display: flex;
@@ -28,31 +49,34 @@
 
 .card {
     display:flex;
+    
     flex-direction:column;
     justify-content:center;
     align-items:center;
     box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
     background-color:white;
     border-radius:10px;
+    width:70%;
 }
-.card-title{
-    margin-top:40px;
+.card-title {
+    margin-top: 40px;
+    font-weight: 600;
 }
 .form-group {
     margin-left: 60px;
     margin-right: 60px;
-    width: 400px;
+    width:90%;
 }
-.input-fields{
-    width:100%;
-    border-radius:5px;
-    padding-left:10px;
-    height:40px;
-    margin-top:10px;
-    margin-bottom:10px;
-    border:1px solid grey;
+.input-fields {
+    width: 100%;
+    border-radius: 5px;
+    padding-left: 10px;
+
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid grey;
 }
-    /* Remove bottom margin from the last input field */
     .input-fields:last-of-type {
         margin-bottom: 4px !important;
     }
@@ -74,13 +98,34 @@
     margin-bottom:60px;
     cursor:pointer;
 }
-    @media (max-width:768px) {
+    @media only screen and (max-width:768px) {
         .Two-cols {
-            display: flex;
             flex-direction: column !important;
+            height:100%;
         }
-
+        .card{
+            width:80%;
+        }
+        .left-div{
+            height:300px !important;
+        }
+        .form-group{
+           width:80%;
+        }
+        .backgroundimg{
+            width:50%;
+        }
+        .card-title{
+            font-size:22px;
+        }
+        .input-fields{
+            width:100%;
+        }
+        .right-div {
+            height:200vh;
+            justify-content: center;
+        }
             .Two-cols > * {
-                width: 100%;
+                width: 100% !important;
             }
     }
