@@ -11,6 +11,40 @@
     <link rel="stylesheet" href="~/css/LoginPage.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#LoginForm").validate({
+                rules: {
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password: {
+                        required: true
+                    }
+                },
+                messages: {
+                    email: {
+                        required: "This field is required.",
+                        email: "Please enter a valid email address."
+                    },
+                    password: {
+
+                        required: "This field is required."
+                    }
+                },
+                errorClass: "custom-error",
+                submitHandler: function (form) {
+                    form.submit();
+                    alert("Login successful!");
+                    window.location.href = '@Url.Action("Index", "Home")';
+
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="Two-cols">
@@ -21,17 +55,18 @@
           <div class="card">
               <h2 class="card-title">Sign In</h2>
               <div class="form-group">
+               <form method="post" id="LoginForm" action="@Url.Action("Login", "Account")">
 
-                  <input type="email" placeholder="Enter your mail" class="input-fields" />
+                  <input type="email" placeholder="Enter your mail" name="email" class="input-fields" />
                     <div class="password-container">
-                        <input id="password" type="password" placeholder="Password" class="input-fields" />
+                        <input id="password" name="password" type="password" placeholder="Password" class="input-fields" />
                         <i class="bi bi-eye-slash toggle-password" id="togglePassword"></i>
                     </div>
                     <a class="LinkToReset" asp-area="" asp-controller="Account" asp-action="ResetPassword">Forgot Password ?</a>
 
 
                     <button class="signinBtn" type="submit">Sign In</button>
-
+                    </form>
               </div>
 
            

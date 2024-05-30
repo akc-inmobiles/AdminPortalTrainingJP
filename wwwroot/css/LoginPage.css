@@ -58,6 +58,10 @@
     border-radius:10px;
     width:70%;
 }
+.custom-error {
+    color: red;
+    font-size: 14px;
+}
 .card-title {
     margin-top: 40px;
     font-weight: 600;
@@ -91,6 +95,7 @@
     margin-top: 10px;
     width: 100%;
     color:white;
+    font-weight:bold;
     border:none;
     border-radius: 5px;
     height: 40px;
